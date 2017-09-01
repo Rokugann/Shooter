@@ -5,17 +5,19 @@ using UnityEngine;
 public class AircraftPitch : MonoBehaviour
 {
 
-	public Rigidbody rb;
-	public float maxRot = 10f;
-	// Use this for initialization
-	void Start ()
+//TODO
+	[SerializeField]
+	private float maxRot = 10f;
+
+	private Rigidbody rb;
+
+	private void Awake ()
 	{
-		
+		rb = GetComponentInParent <Rigidbody> (); 
 	}
 
-	// Update is called once per frame
-	void Update ()
+	private void Update ()
 	{
-		transform.rotation = Quaternion.Euler(new Vector3 (rb.velocity.z*1.5f, 0, -rb.velocity.x*3));
+		transform.rotation = Quaternion.Euler(new Vector3 (rb.velocity.z * 1.5f, 0, -rb.velocity.x * 3f));
 	}
 }
