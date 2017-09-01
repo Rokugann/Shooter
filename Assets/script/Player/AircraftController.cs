@@ -13,7 +13,7 @@ public class AircraftController : MonoBehaviour
 	private float moveSpeed = 10f;
 
 	[SerializeField]
- 	private float turnSpeed = 50f, slowSpeed = 0.4f;
+  	float slowSpeed = 0.4f;
 
 
 	private Transform[] shootPos;
