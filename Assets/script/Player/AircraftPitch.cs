@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class AircraftPitch : MonoBehaviour
 {
-
-//TODO
-	[SerializeField]
-	private float maxRot = 10f;
-
-	private Rigidbody rb;
-
-	private void Awake ()
-	{
-		rb = GetComponentInParent <Rigidbody> (); 
-	}
+	Vector3 velocity, tmp = new Vector3 ();
 
 	private void Update ()
 	{
-		transform.rotation = Quaternion.Euler(new Vector3 (rb.velocity.z * 1.5f, 0, -rb.velocity.x * 3f));
+		velocity = tmp - this.transform.position;
+		tmp = this.transform.position;
+		transform.rotation = Quaternion.Euler (new Vector3 (velocity.z * 3, 0f, -velocity.x * 24f));
 	}
 }

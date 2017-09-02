@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class AircraftController : MonoBehaviour
 {
-
-//TODO Separate Shoot and Move
-
-	public GameObject blaster;
-
 	[SerializeField]
 	private float moveSpeed = 10f;
-	
-	// Update is called once per frame
+
 	private void Update ()
 	{
 		Vector3 v = this.transform.position, nv = new Vector3 ();
