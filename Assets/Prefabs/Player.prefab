@@ -2106,10 +2106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a1cdebf068b1c49afc2be21cf75d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoInMagazine: 300
-  magazines: 8
-  maxShootPerSecond: 8
-  minShootPerSecond: 10
+  totalAmmo: 100
+  baseShootTime: 0.42
+  rateModifierOverTime: 3.49
   heatTime: 1.22
   reloadTime: 6
   bulletPrefab: {fileID: 1395160009887518, guid: d0886459d5c8d4da995af31ef18ca722,

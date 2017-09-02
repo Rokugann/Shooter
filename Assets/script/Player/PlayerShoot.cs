@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
 	[SerializeField]
-	private int ammoInMagazine, magazines;
+	private int totalAmmo;
 
 	[SerializeField]
 	private float baseShootTime, rateModifierOverTime, heatTime = 2f;
@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
 
 	private void Start ()
 	{
-		ammo = ammoInMagazine;
+		ammo = totalAmmo;
 	}
 
 	private void Update ()
@@ -72,13 +72,9 @@ public class PlayerShoot : MonoBehaviour
 
 	private void Reload ()
 	{
-		if (magazines > 0)
-		{
-			StartCoroutine (ILock ());
-			ammo = ammoInMagazine;
-			magazines --;
-			shootTime = 0f;
-		}
+		StartCoroutine (ILock ());
+		ammo = totalAmmo;
+		shootTime = 0f;
 	}
 
 	private IEnumerator ILock ()

@@ -578,16 +578,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114921734671163068, guid: 068c87b8e604843ffb946315a31cc2f9,
-        type: 2}
-      propertyPath: baseShootTime
-      value: 0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 114921734671163068, guid: 068c87b8e604843ffb946315a31cc2f9,
-        type: 2}
-      propertyPath: rateModifierOverTime
-      value: 5.81
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 068c87b8e604843ffb946315a31cc2f9, type: 2}
   m_IsPrefabParent: 0
