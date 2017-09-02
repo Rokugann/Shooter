@@ -57,7 +57,7 @@ public class PlayerShoot : MonoBehaviour
 		if (ammo > 0 && isReady)
 		{
 			shootTime += Time.deltaTime;
-			gun = gun ? !gun : gun; //used to toggle canon that actually shooting
+			gun = gun ? gun = false : gun = true; //used to toggle canon that actually shooting
 			StartCoroutine (IShoot (1f - shootTime * 1.5f /*Mathf.Lerp (minShootPerSecond, maxShootPerSecond, shootTime)*/));
 			ammo --;
 		}
@@ -91,9 +91,16 @@ public class PlayerShoot : MonoBehaviour
 	private IEnumerator IShoot (float shootTime)
 	{
 		canShoot = false;
-		Instantiate (bulletPrefab, gun ? shootPositionA.position : shootPositionB.position, shootPositionA.rotation);
+		Instantiate
+		(
+			bulletPrefab,
+			gun
+				? shootPositionA.position
+				: shootPositionB.position,
+			transform.GetChild (0).rotation
+		);
+
 		yield return new WaitForSeconds (shootTime);
 		canShoot = true;
-
 	}
 }
