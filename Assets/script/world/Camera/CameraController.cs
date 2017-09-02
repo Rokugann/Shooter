@@ -7,34 +7,35 @@ public class CameraController : MonoBehaviour
 	[SerializeField]
 	private Vector3 topLeftCollider = new Vector3 (), botRightCollider = new Vector3 ();
 
-	private static Vector3 tlCollider, brCollider;
+	private static Vector3 trueTLCollider, trueBRCollider, tlCollider, brCollider;
 
-	private void Update ()
+	private void Start ()
 	{
 		tlCollider = topLeftCollider + transform.position;
 		brCollider = botRightCollider + transform.position;
 	}
 
+	private void Update ()
+	{
+		trueTLCollider = tlCollider + transform.position;
+		trueBRCollider = brCollider + transform.position;
+	}
+
 	public static Vector3 TopLeftCollider
 	{
-		get { return tlCollider; } 
+		get { return trueTLCollider; }
+		set { tlCollider = value; } 
 	}
 
 	public static Vector3 BotRightCollider
 	{
-		get { return brCollider; }
+		get { return trueBRCollider; }
+		set { brCollider = value; }
 	}
 
 	private void OnDrawGizmos ()
 	{
-		Gizmos.color = Color.red;
-		Vector3 v = new Vector3 (topLeftCollider.x, 0f, botRightCollider.z);
-
-		Gizmos.DrawLine (topLeftCollider, v);
-		Gizmos.DrawLine (v, botRightCollider);
-
-		v = new Vector3 (botRightCollider.x, 0f, topLeftCollider.z);
-		Gizmos.DrawLine (botRightCollider, v);
-		Gizmos.DrawLine (v, topLeftCollider);
+		CameraBoundDebug c = new CameraBoundDebug (topLeftCollider, botRightCollider, Color.red);
+		c.DrawDebug ();
 	}
 }
