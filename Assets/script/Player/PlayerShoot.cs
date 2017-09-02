@@ -8,7 +8,7 @@ public class PlayerShoot : MonoBehaviour
 	private int ammoInMagazine, magazines;
 
 	[SerializeField]
-	private float maxShootPerSecond, minShootPerSecond, heatTime = 2f;
+	private float baseShootTime, rateModifierOverTime, heatTime = 2f;
 
 	[SerializeField]
 	private float reloadTime = 2f;
@@ -58,7 +58,7 @@ public class PlayerShoot : MonoBehaviour
 		{
 			shootTime += Time.deltaTime;
 			gun = gun ? gun = false : gun = true; //used to toggle canon that actually shooting
-			StartCoroutine (IShoot (1f - shootTime * 1.5f /*Mathf.Lerp (minShootPerSecond, maxShootPerSecond, shootTime)*/));
+			StartCoroutine (IShoot (baseShootTime - shootTime * rateModifierOverTime));
 			ammo --;
 		}
 		else if (!isReady)
