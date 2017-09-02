@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
 	[SerializeField]
-	private int ammoInMagazine, magazines;
+	private int totalAmmo;
 
 	[SerializeField]
-	private float maxShootPerSecond, minShootPerSecond, heatTime = 2f;
+	private float baseShootTime, rateModifierOverTime, heatTime = 2f;
 
 	[SerializeField]
 	private float reloadTime = 2f;
@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
 
 	private void Start ()
 	{
-		ammo = ammoInMagazine;
+		ammo = totalAmmo;
 	}
 
 	private void Update ()
@@ -57,8 +57,8 @@ public class PlayerShoot : MonoBehaviour
 		if (ammo > 0 && isReady)
 		{
 			shootTime += Time.deltaTime;
-			gun = gun ? !gun : gun; //used to toggle canon that actually shooting
-			StartCoroutine (IShoot (1f - shootTime * 1.5f /*Mathf.Lerp (minShootPerSecond, maxShootPerSecond, shootTime)*/));
+			gun = gun ? gun = false : gun = true; //used to toggle canon that actually shooting
+			StartCoroutine (IShoot (baseShootTime - shootTime * rateModifierOverTime));
 			ammo --;
 		}
 		else if (!isReady)
@@ -72,13 +72,9 @@ public class PlayerShoot : MonoBehaviour
 
 	private void Reload ()
 	{
-		if (magazines > 0)
-		{
-			StartCoroutine (ILock ());
-			ammo = ammoInMagazine;
-			magazines --;
-			shootTime = 0f;
-		}
+		StartCoroutine (ILock ());
+		ammo = totalAmmo;
+		shootTime = 0f;
 	}
 
 	private IEnumerator ILock ()
@@ -91,9 +87,16 @@ public class PlayerShoot : MonoBehaviour
 	private IEnumerator IShoot (float shootTime)
 	{
 		canShoot = false;
-		Instantiate (bulletPrefab, gun ? shootPositionA.position : shootPositionB.position, shootPositionA.rotation);
+		Instantiate
+		(
+			bulletPrefab,
+			gun
+				? shootPositionA.position
+				: shootPositionB.position,
+			transform.GetChild (0).rotation
+		);
+
 		yield return new WaitForSeconds (shootTime);
 		canShoot = true;
-
 	}
 }
