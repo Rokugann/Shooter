@@ -12,6 +12,9 @@ public class LevelManager : MonoBehaviour
 	[SerializeField]
 	private float standardScrollSpeed = 0f;
 
+	[SerializeField]
+	private GameObject player;
+
 	private void Awake ()
 	{
 		if (_instance != this && _instance != null)
@@ -28,6 +31,12 @@ public class LevelManager : MonoBehaviour
 	{
 		get {return inverseScroll; }
 	}
+
+	public GameObject Player
+	{
+		get {return player; }
+	}
+
 	public float scrollSpeed
 	{
 		get {return inverseScroll ? -standardScrollSpeed : standardScrollSpeed; }

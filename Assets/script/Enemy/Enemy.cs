@@ -16,9 +16,9 @@ public class Enemy : MonoBehaviour
 
 	private void OnCollisionEnter (Collision c)
 	{
-		Bullet b = c.gameObject.GetComponent <Bullet> ();
-		if (c.collider.tag == "Player" && b)
+		if (c.collider.tag == "Shot" && c.gameObject.layer == 8)
 		{
+			Bullet b = c.gameObject.GetComponent <Bullet> ();
 			DoDamage (b.Damage);
 			Destroy (c.gameObject);
 		}
