@@ -8,10 +8,10 @@ public class CameraController : MonoBehaviour
 	private Vector3 topLeftCollider = new Vector3 (), botRightCollider = new Vector3 ();
 
 	[SerializeField]
-	private float zoomLevel = 30f, shift = 0.2f;
+	private float zoomLevel = 30f;
 
 	private static Vector3 trueTLCollider, trueBRCollider, tlCollider, brCollider;
-	private static float _zoomLevel, _shift = 0.2f;
+	private static float _zoomLevel, _shift = -.2f;
 
 	private void Start ()
 	{

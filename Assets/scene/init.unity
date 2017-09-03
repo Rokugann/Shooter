@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 553598291}
   - component: {fileID: 553598293}
   - component: {fileID: 553598292}
-  - component: {fileID: 553598294}
+  - component: {fileID: 553598295}
   m_Layer: 0
   m_Name: T1
   m_TagString: Untagged
@@ -355,7 +355,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 553598290}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &553598294
+--- !u!114 &553598295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -363,12 +363,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 553598290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d282aca2e42c599498ece82a9432abf2, type: 3}
+  m_Script: {fileID: 11500000, guid: ae098e537d66b6044bd82538e9abfe8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause: 0
-  reset: 0
-  speed: -8
+  zoom: 18.09
+  smooth: 1.35
 --- !u!1 &707778501
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,23 +769,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114252617387852472, guid: 068c87b8e604843ffb946315a31cc2f9,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114751841430323188, guid: 068c87b8e604843ffb946315a31cc2f9,
-        type: 2}
-      propertyPath: boundSize
-      value: 3.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 54097427692533764, guid: 068c87b8e604843ffb946315a31cc2f9,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 126
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114252617387852472, guid: 068c87b8e604843ffb946315a31cc2f9, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 068c87b8e604843ffb946315a31cc2f9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1487124428
@@ -952,7 +935,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494619295}
   m_LocalRotation: {x: 0.45451945, y: -0.54167527, z: 0.45451945, w: 0.54167527}
-  m_LocalPosition: {x: 0, y: 45, z: 0}
+  m_LocalPosition: {x: 0, y: 47.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -971,8 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topLeftCollider: {x: -39.91, y: 0, z: -48}
   botRightCollider: {x: 18.5, y: 0, z: 47.21}
-  zoomLevel: 45
-  shift: 0.2
+  zoomLevel: 46.3
 --- !u!1 &1746181730 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1388465056118288, guid: 068c87b8e604843ffb946315a31cc2f9,
