@@ -7,6 +7,9 @@ public class LevelManager : MonoBehaviour
 	private static LevelManager _instance;
 
 	[SerializeField]
+	private bool inverseScroll = true;
+
+	[SerializeField]
 	private float standardScrollSpeed = 0f;
 
 	private void Awake ()
@@ -16,9 +19,18 @@ public class LevelManager : MonoBehaviour
 		_instance = this;
 	}
 
+	public void InverseScroll ()
+	{
+		inverseScroll = inverseScroll ? false : true;
+	}
+
+	public bool scrollIsReversed
+	{
+		get {return inverseScroll; }
+	}
 	public float scrollSpeed
 	{
-		get { return standardScrollSpeed; }
+		get {return inverseScroll ? -standardScrollSpeed : standardScrollSpeed; }
 	}
 
 	public static LevelManager instance
