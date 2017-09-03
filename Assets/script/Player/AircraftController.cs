@@ -36,7 +36,7 @@ public class AircraftController : MonoBehaviour
 		{
 			Vector3 l = ray.GetPoint (dist);
 			Vector3 rot = l - transform.position;
-			transform.rotation = Quaternion.LookRotation (rot);
+			pitchObject.transform.rotation = Quaternion.LookRotation (rot);
 		}
 	}
 }

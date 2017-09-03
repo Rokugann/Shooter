@@ -10,6 +10,11 @@ public class Bullet : MonoBehaviour
 	[SerializeField]
 	private float speed = 5f;
 
+	public int Damage
+	{
+		get { return damage; }
+	}
+
 	private void Update ()
 	{
 		transform.Translate (Vector3.forward * speed * Time.deltaTime);
