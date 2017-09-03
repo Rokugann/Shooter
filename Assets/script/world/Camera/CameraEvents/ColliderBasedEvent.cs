@@ -16,6 +16,7 @@ public abstract class ColliderBasedEvent : MonoBehaviour
 	{
 		if (c.tag == "Player" && !hasTriggered)
 		{
+			Debug.Log (this.gameObject.name + " has triggered");
 			hasTriggered = true;
 			OnExecute (c.gameObject);
 		}
