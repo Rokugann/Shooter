@@ -10,10 +10,14 @@ public class Bullet : MonoBehaviour
 	[SerializeField]
 	private float speed = 5f;
 
+	public int Damage
+	{
+		get { return damage; }
+	}
+
 	private void Update ()
 	{
-		Vector3 v = transform.position;
-		transform.position = new Vector3 (v.x, v.y, v.z + speed * Time.deltaTime);
+		transform.Translate (Vector3.forward * speed * Time.deltaTime);
 	}
 
 }
